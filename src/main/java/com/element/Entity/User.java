@@ -1,47 +1,48 @@
 package com.element.Entity;
 
 public class User {
-    private String userId;
+    private int userId;
     private String userName;
-    private String password;
-    private int userSex;
-    private String userImg;
-    private int delTag;
+    private int age;
+    private int countryId;
 
-    public String getUserID() {
-        return userId;
+    public User(int userId, String userName, int age, int countryId) {
+        this.userId = userId;
+        this.userName = userName;
+        this.age = age;
+        this.countryId = countryId;
     }
-    public void setUserID(String userId) {
+
+    public void setUserId(int userId) {
         this.userId = userId;
     }
-    public String getUserName() {
-        return userName;
-    }
+
     public void setUserName(String userName) {
         this.userName = userName;
     }
-    public String getPassword() {
-        return password;
+
+    public void setAge(int age) {
+        this.age = age;
     }
-    public void setPassword(String password) {
-        this.password = password;
+
+    public void setCountryId(int countryId) {
+        this.countryId = countryId;
     }
-    public int getUserSex() {
-        return userSex;
+
+    public int getUserId() {
+        return userId;
     }
-    public void setUserSex(int userSex) {
-        this.userSex = userSex;
+
+    public String getUserName() {
+        return userName;
     }
-    public String getUserImg() {
-        return userImg;
+
+    public int getAge() {
+        return age;
     }
-    public void setUserImg(String userImg) {
-        this.userImg = userImg;
-    }
-    public int getDelTag() {
-        return delTag;
-    }
-    public void setDelTag(int delTag) {
-        this.delTag = delTag;
+
+    public int getCountryId() {
+        return countryId;
     }
 }
+
