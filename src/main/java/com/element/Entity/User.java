@@ -1,48 +1,47 @@
 package com.element.Entity;
 
 public class User {
-    private int userId;
+    private String userId;
     private String userName;
-    private int age;
-    private int countryId;
+    private String password;
+    private int userSex;
+    private String userImg;
+    private int delTag;
 
-    public User(int userId, String userName, int age, int countryId) {
-        this.userId = userId;
-        this.userName = userName;
-        this.age = age;
-        this.countryId = countryId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setCountryId(int countryId) {
-        this.countryId = countryId;
-    }
-
-    public int getUserId() {
+    public String getUserID() {
         return userId;
     }
-
+    public void setUserID(String userId) {
+        this.userId = userId;
+    }
     public String getUserName() {
         return userName;
     }
-
-    public int getAge() {
-        return age;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
-
-    public int getCountryId() {
-        return countryId;
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    public int getUserSex() {
+        return userSex;
+    }
+    public void setUserSex(int userSex) {
+        this.userSex = userSex;
+    }
+    public String getUserImg() {
+        return userImg;
+    }
+    public void setUserImg(String userImg) {
+        this.userImg = userImg;
+    }
+    public int getDelTag() {
+        return delTag;
+    }
+    public void setDelTag(int delTag) {
+        this.delTag = delTag;
     }
 }
-
