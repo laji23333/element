@@ -5,6 +5,9 @@ spring:
     username: root
     password: yxf991107ld
     driver-class-name: com.mysql.cj.jdbc.Driver
+#    password: 123456
+#    driver-class-name: com.mysql.jdbc.Driver
+    #Druid配置
     # 初始化连接池个数
     initialSize: 5
     # 最小连接池个数——》已经不再使用，配置了也没效果
@@ -41,5 +44,5 @@ spring:
     useGlobalDataSourceStat: true
 
 mybatis:
-  mapper-locations: classpath:mapper/*Mapper.xml
+  mapper-locations: classpath:Mapper/*Mapper.xml
   type-aliases-package: com.element.Entity
