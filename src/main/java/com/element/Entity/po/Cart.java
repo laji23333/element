@@ -1,7 +1,7 @@
 package com.element.Entity.po;
 
 public class Cart {
-	private Integer cartId;     // 无用
+	private Integer cartId;     // 无用id
 	private Integer foodId;     //食品id
 	private Integer businessId; //所属商家id
 	private String userId;      //所属用户id
