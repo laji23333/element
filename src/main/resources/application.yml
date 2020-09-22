@@ -1,10 +1,10 @@
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/elm?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
-    password: 123456
-    driver-class-name: com.mysql.jdbc.Driver
+    password: yxf991107ld
+    driver-class-name: com.mysql.cj.jdbc.Driver
     # 初始化连接池个数
     initialSize: 5
     # 最小连接池个数——》已经不再使用，配置了也没效果
