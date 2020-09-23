@@ -1,6 +1,6 @@
 package com.element.Controller;
 
-import com.element.Entity.po.Address;
+import com.element.Entity.po.DeliveryAddress;
 import com.element.Service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +15,7 @@ public class AddressController {
     private AddressService addressService;
 
     @GetMapping("/getAllAddress")
-    public List<Address> getAllAddress(){
+    public List<DeliveryAddress> getAllAddress(){
         return addressService.getAllAddress();
     }
 }
