@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface FoodService {
     public List<Food> getAllFood(Integer businessId);
-    public Food getFood(String foodId);
+    public Food getFood(Integer foodId);
 }

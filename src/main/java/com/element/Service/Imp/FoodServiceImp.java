@@ -19,7 +19,9 @@ public class FoodServiceImp implements FoodService {
     }
 
     @Override
-    public Food getFood(String foodId) {
+    public Food getFood(Integer foodId) {
         return foodMapper.getFood(foodId);
     }
+
+
 }

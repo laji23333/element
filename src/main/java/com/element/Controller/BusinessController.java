@@ -73,7 +73,6 @@ public class BusinessController {
         result.put("status","success");
         result.put("detail",businessVOS);
         return  result.toJSONString();
-
     }
 
     /**

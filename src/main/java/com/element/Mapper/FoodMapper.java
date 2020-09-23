@@ -7,5 +7,6 @@ import java.util.List;
 
 @Mapper
 public interface FoodMapper {
-    List<Food> getAllFood(Integer businessId);
+    public List<Food> getAllFood(Integer businessId);
+    public Food getFood(Integer foodId);
 }
