@@ -82,9 +82,6 @@ public class OrdersController {
         String userId = (String) request.getSession().getAttribute("userId");
         System.out.println(userId);
 
-        List<Orders> allOrders = ordersService.getAllOrders(userId);
-        System.out.println(allOrders);
-
         Orders orders = ordersService.getOrders(orderBO.getOrderId());
         List<FoodVO> foods = new ArrayList<FoodVO>();
         OrdersVO ordersVO = new OrdersVO();
@@ -137,7 +134,7 @@ public class OrdersController {
 
         for (FoodVO foodvo: orderVO.getFoods()){
             orderDetail.setFoodId(foodvo.getFoodId());
-            orderDetail.setOrderId(orderVO.getOrderId());
+            orderDetail.setOrderId(order.getOrderId());
             orderDetail.setQuantity(foodvo.getQuantity());
             ordersService.saveOrderDetails(orderDetail);
         }

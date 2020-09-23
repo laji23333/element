@@ -21,7 +21,7 @@
     </select>
 
     <update id="pay" parameterType="Integer">
-        update orders set orderState values = 1
+        update orders set orderState = 1 where orderId=#{orderId}
     </update>
 
     <select id="getOrderDetailet" parameterType="Integer" resultType="com.element.Entity.po.OrderDetailet">

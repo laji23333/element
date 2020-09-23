@@ -32,7 +32,7 @@ public class BusinessController {
             businessVO.setBusinessExplain(business.getBusinessExplain());
             businessVO.setBusinessImg(business.getBusinessImg());
             businessVO.setStarPrice(business.getStarPrice());
-            businessVO.setDeliveryPrice(business.getStarPrice());
+            businessVO.setDeliveryPrice(business.getDeliveryPrice());
             businessVO.setRemarks(business.getRemarks());
             businessVOS.add(businessVO);
         }
@@ -61,7 +61,7 @@ public class BusinessController {
             businessVO.setBusinessExplain(business.getBusinessExplain());
             businessVO.setBusinessImg(business.getBusinessImg());
             businessVO.setStarPrice(business.getStarPrice());
-            businessVO.setDeliveryPrice(business.getStarPrice());
+            businessVO.setDeliveryPrice(business.getDeliveryPrice());
             businessVOS.add(businessVO);
         }
         if (businessVOS.isEmpty()){
