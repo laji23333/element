@@ -1,6 +1,6 @@
-package com.element.Dao;
+package com.element.Mapper;
 
-import com.element.Entity.Business;
+import com.element.Entity.po.Business;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

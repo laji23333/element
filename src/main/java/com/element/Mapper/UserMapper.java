@@ -1,6 +1,7 @@
-package com.element.Dao;
+package com.element.Mapper;
 
-import com.element.Entity.User;
+
+import com.element.Entity.po.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

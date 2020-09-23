@@ -1,4 +1,4 @@
-package com.element.Entity;
+package com.element.Entity.po;
 
 public class Business {
 	private Integer businessId;     //商家id

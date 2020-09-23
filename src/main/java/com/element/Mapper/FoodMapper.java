@@ -1,6 +1,6 @@
-package com.element.Dao;
+package com.element.Mapper;
 
-import com.element.Entity.Food;
+import com.element.Entity.po.Food;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
