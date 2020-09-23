@@ -5,5 +5,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface BusinessMapper {
-    public Business getBusiness(Integer businessId);
+    Business getBusiness(Integer businessId);
 }
