@@ -9,4 +9,5 @@ import java.util.List;
 public interface BusinessMapper {
     List<Business> getAllBusiness();
     List<Business> getBusinessByOrderTypeId(Integer orderTypeId);
+    Business getBusiness(Integer businessId);
 }

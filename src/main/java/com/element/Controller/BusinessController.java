@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -73,5 +74,18 @@ public class BusinessController {
         result.put("detail",businessVOS);
         return  result.toJSONString();
 
+    }
+
+    /**
+     * 获取商家的详情信息
+     * @param businessId
+     * @return businessService.getBusiness(businessId)
+     */
+    @GetMapping("/getBusiness/{id}")
+    public String getBusinessDetail(@PathVariable("id") Integer businessId){
+        JSONObject result = new JSONObject();
+        result.put("status","success");
+        result.put("detail",businessService.getBusiness(businessId));
+        return result.toJSONString();
     }
 }
