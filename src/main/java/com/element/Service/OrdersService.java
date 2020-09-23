@@ -1,13 +1,10 @@
-package com.element.Dao;
+package com.element.Service;
 
 import com.element.Entity.po.Orders;
-import org.apache.ibatis.annotations.Mapper;
-import sun.nio.cs.ThreadLocalCoders;
 
 import java.util.List;
 
-@Mapper
-public interface OrdersMapper {
+public interface OrdersService {
     public Orders getOrders(Integer orderId);
     public int saveOrders(Orders orders);
     public int pay(Integer orderId);
