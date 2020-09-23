@@ -11,6 +11,10 @@
         select * from user where userName = #{userName}
     </select>
 
+    <select id="findUserByUserId" resultType="com.element.Entity.po.User">
+        select * from user where userId = #{userId}
+    </select>
+
     <insert id="save">
         insert into user(userId,userName,password,userSex,,delTag) values (#{userId},#{userName},#{password},#{userSex},#{userSex},#{delTag})
     </insert>
