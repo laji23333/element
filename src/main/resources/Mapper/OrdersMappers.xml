@@ -11,7 +11,7 @@
         select * form orders where orderId=#{orderId}
     </select>
 
-    <select id="getOrdersList" resultType="com.element.Entity.po.Orders">
+    <select id="getAllOrders" resultType="com.element.Entity.po.Orders">
         select * form orders
     </select>
 

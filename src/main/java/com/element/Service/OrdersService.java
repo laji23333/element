@@ -8,5 +8,5 @@ public interface OrdersService {
     public Orders getOrders(Integer orderId);
     public int saveOrders(Orders orders);
     public int pay(Integer orderId);
-    public List<Orders> getOrdersList();
+    public List<Orders> getAllOrders();
 }

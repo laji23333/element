@@ -10,5 +10,5 @@ public interface OrdersMapper {
     public Orders getOrders(int orderId);
     public int saveOrders(Orders orders);
     public int pay(int orderId);
-    public List<Orders> getOrdersList();
+    public List<Orders> getAllOrders();
 }

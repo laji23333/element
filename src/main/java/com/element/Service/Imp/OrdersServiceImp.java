@@ -29,7 +29,7 @@ public class OrdersServiceImp implements OrdersService {
     }
 
     @Override
-    public List<Orders> getOrdersList() {
-        return ordersMapper.getOrdersList();
+    public List<Orders> getAllOrders() {
+        return ordersMapper.getAllOrders();
     }
 }
