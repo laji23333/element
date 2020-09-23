@@ -22,9 +22,4 @@ public class BusinessServiceImp implements BusinessService {
     public List<Business> getBusinessByOrderTypeId(Integer orderTypeId){
         return businessMapper.getBusinessByOrderTypeId(orderTypeId);
     }
-
-    @Override
-    public List<Business> getBusinessList() {
-        return businessMapper.getBusinessList();
-    }
 }
