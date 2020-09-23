@@ -11,8 +11,12 @@
         select * from user where userName = #{userName}
     </select>
 
+
     <select id="findUserByUserId" resultType="com.element.Entity.po.User">
         select * from user where userId = #{userId}
+    </select>
+    <select id="getAllUser" resultType="com.element.Entity.po.User">
+        select * from user
     </select>
 
     <insert id="save">

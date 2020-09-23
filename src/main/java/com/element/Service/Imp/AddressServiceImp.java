@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class AddressServiceImp implements AddressService {
 
-    @Autowired(required = false)
+    @Autowired
     private AddressMapper addressMapper;
 
     @Override

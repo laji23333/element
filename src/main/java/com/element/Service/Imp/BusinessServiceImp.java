@@ -14,7 +14,7 @@ import java.util.Map;
 
 @Service
 public class BusinessServiceImp implements BusinessService {
-    @Autowired(required = false)
+    @Autowired
     private BusinessMapper businessMapper;
 
     @Autowired(required = false)
@@ -36,5 +36,10 @@ public class BusinessServiceImp implements BusinessService {
         businessMap.put(1,businessMapper.getBusiness(businessId));
         businessMap.put(2,foodMapper.getAllFood(businessId));
         return businessMap;
+    }
+
+    @Override
+    public Business getBusinessByBusinessId(Integer businessId){
+        return businessMapper.getBusiness(businessId);
     }
 }

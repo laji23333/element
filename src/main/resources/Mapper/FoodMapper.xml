@@ -8,6 +8,6 @@
     </select>
 
     <select id="getFood" parameterType="Integer" resultType="com.element.Entity.po.Food">
-        select * form detailet where foodId=#{foodId}
+        select * from food where foodId=#{foodId}
     </select>
 </mapper>

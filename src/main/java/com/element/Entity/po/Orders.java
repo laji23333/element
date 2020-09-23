@@ -8,6 +8,7 @@ public class Orders {
     private String orderTotal;
     private Integer daId;
     private Integer orderState;
+    private String sessionId;
 
     public Integer getOrderId() {
         return orderId;
@@ -63,5 +64,13 @@ public class Orders {
 
     public void setOrderState(Integer orderState) {
         this.orderState = orderState;
+    }
+
+    public String getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
     }
 }

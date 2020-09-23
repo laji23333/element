@@ -5,6 +5,6 @@ import com.element.Entity.po.Food;
 import java.util.List;
 
 public interface FoodService {
-    public List<Food> getAllFood(Integer businessId);
-    public Food getFood(Integer foodId);
+    List<Food> getAllFood(Integer businessId);
+    Food getFoodByFoodId(Integer foodId);
 }

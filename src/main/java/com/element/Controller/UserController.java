@@ -3,31 +3,48 @@ package com.element.Controller;
 import com.alibaba.fastjson.JSONObject;
 import com.element.Entity.po.User;
 import com.element.Service.UserService;
+import com.element.Util.MySessionContext;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @RestController
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/login")
-    public String login1(@RequestParam("userName") String userName, @RequestParam("password") String password){
-        User login = userService.login(userName,password);
-        if(login!=null){
-            JSONObject result = new JSONObject();
-            result.put("status","success");
-            result.put("detail",login);
-            return  result.toJSONString();
+    @RequestMapping(value = "login", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String login(@RequestBody User userPO, HttpServletRequest request){
+
+        int flag = userService.checkUser(userPO.getUserName(),userPO.getPassword());
+
+        if( flag != 0) {
+            if (flag == 1){
+                User user = userService.login(userPO.getUserName(),userPO.getPassword());
+                //将id存入session
+                request.getSession().setAttribute("userId",user.getUserId());
+                JSONObject result = new JSONObject();
+                result.put("status", "success");
+                result.put("detail","登录成功！");
+                result.put("userId",request.getSession().getAttribute("userId"));
+                return result.toJSONString();
+            }else{
+                JSONObject result = new JSONObject();
+                result.put("status", "failure");
+                result.put("detail","密码错误，登录失败！");
+                return result.toJSONString();
+            }
         }else{
             JSONObject result = new JSONObject();
-            result.put("status","failure");
-            result.put("detail","账户名或密码错误");
-            return  result.toJSONString();
+            result.put("status", "failure");
+            result.put("detail","账号不存在，请先注册账号！");
+            return result.toJSONString();
         }
+
+
     }
     //注册功能
     @PostMapping("/register")

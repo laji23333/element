@@ -10,6 +10,7 @@ import java.util.List;
 public interface AddressMapper {
     List<DeliveryAddress> getAllAddress();
 
+
     DeliveryAddress getAddressBydaId(Integer daId);
 
     int addAddress(Integer daId, String contactName, Integer contactSex, String contactTel, String address, String userId);

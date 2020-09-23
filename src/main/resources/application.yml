@@ -3,8 +3,8 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://localhost:3306/elm?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
-    password:
-    driver-class-name: com.mysql.jdbc.Driver
+    password: yxf991107ld
+    driver-class-name: com.mysql.cj.jdbc.Driver
     #Druid配置
     # 初始化连接池个数
     initialSize: 5
@@ -43,4 +43,4 @@ spring:
 
 mybatis:
   mapper-locations: classpath:Mapper/*Mapper.xml
-  type-aliases-package: com.element.Entity
+  type-aliases-package: com.element.Entity.po
