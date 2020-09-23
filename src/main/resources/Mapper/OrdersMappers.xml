@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.element.Dao.OrdersMapper">
+    <insert id="saveOrders">
+        insert into orders (orderId,userId,businessId,orderDate,orderTotal,daId,orderState)
+		 values (#{orderId},#{userId},#{businessId},#{orderDate},#{orderTotal},#{daId},#{orderState})
+    </insert>
+
+    <select id="getOrders" parameterType="Integer" resultType="com.element.Entity.po.Orders">
+        select * form orders where orderId=#{orderId}
+    </select>
+
+    <select id="getOrdersList" resultType="com.element.Entity.po.Orders">
+        select * form orders
+    </select>
+
+    <update id="pay" parameterType="Integer">
+        update orders set orderState values = 1
+    </update>
+</mapper>
