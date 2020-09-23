@@ -1,7 +1,7 @@
 package com.element.Service;
 
-import com.element.Entity.po.Business;
+import com.element.Entity.Business;
 
 public interface BusinessService {
-    Business getBusiness(Integer businessId);
+    public Business getBusiness(Integer businessId);
 }
