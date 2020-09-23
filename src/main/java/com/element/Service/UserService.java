@@ -1,6 +1,7 @@
 package com.element.Service;
 
-import com.element.Entity.User;
+
+import com.element.Entity.po.User;
 
 public interface UserService {
     public User login(String userName, String password);

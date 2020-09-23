@@ -1,54 +1,67 @@
-package com.element.Entity;
+package com.element.Entity.po;
 
 public class Orders {
-    private int orderId;
+    private Integer orderId;
     private String userId;
-    private int businessId;
+    private Integer businessId;
     private String orderDate;
     private String orderTotal;
-    private int daId;
-    private int orderState;
+    private Integer daId;
+    private Integer orderState;
 
-    public int getOrderId() {
+    public Integer getOrderId() {
         return orderId;
     }
-    public void setOrderId(int orderId) {
+
+    public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
+
     public String getUserId() {
         return userId;
     }
+
     public void setUserId(String userId) {
         this.userId = userId;
     }
-    public int getBusinessId() {
+
+    public Integer getBusinessId() {
         return businessId;
     }
-    public void setBusinessId(int businessId) {
+
+    public void setBusinessId(Integer businessId) {
         this.businessId = businessId;
     }
+
     public String getOrderDate() {
         return orderDate;
     }
+
     public void setOrderDate(String orderDate) {
         this.orderDate = orderDate;
     }
+
     public String getOrderTotal() {
         return orderTotal;
     }
+
     public void setOrderTotal(String orderTotal) {
         this.orderTotal = orderTotal;
     }
-    public int getDaId() {
+
+    public Integer getDaId() {
         return daId;
     }
-    public void setDaId(int daId) {
+
+    public void setDaId(Integer daId) {
         this.daId = daId;
     }
-    public int getOrderState() {
+
+    public Integer getOrderState() {
         return orderState;
     }
-    public void setOrderState(int orderState) {
+
+    public void setOrderState(Integer orderState) {
         this.orderState = orderState;
     }
 }

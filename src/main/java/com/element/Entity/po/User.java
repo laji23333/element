@@ -1,12 +1,12 @@
-package com.element.Entity;
+package com.element.Entity.po;
 
 public class User {
     private String userId;
     private String userName;
     private String password;
-    private int userSex;
+    private Integer userSex;
     private String userImg;
-    private int delTag;
+    private Integer delTag;
 
     public String getUserId() {
         return userId;
@@ -32,11 +32,11 @@ public class User {
         this.password = password;
     }
 
-    public int getUserSex() {
+    public Integer getUserSex() {
         return userSex;
     }
 
-    public void setUserSex(int userSex) {
+    public void setUserSex(Integer userSex) {
         this.userSex = userSex;
     }
 
@@ -48,11 +48,11 @@ public class User {
         this.userImg = userImg;
     }
 
-    public int getDelTag() {
+    public Integer getDelTag() {
         return delTag;
     }
 
-    public void setDelTag(int delTag) {
+    public void setDelTag(Integer delTag) {
         this.delTag = delTag;
     }
 }

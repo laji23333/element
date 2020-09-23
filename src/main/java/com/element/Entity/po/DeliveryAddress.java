@@ -1,19 +1,19 @@
 package com.element.Entity.po;
 
-public class Address {
-    private int daID;                   //送货地址编号
-    private String contactName;         //联系人姓名
-    private int contactSex;             //联系人性别
-    private String contactTel;          //联系人电话
-    private String address;             //送货地址
-    private String userId;                 //所属用户编号
+public class DeliveryAddress {
+    private Integer daId;
+    private String contactName;
+    private Integer contactSex;
+    private String contactTel;
+    private String address;
+    private String userId;
 
-    public int getDaID() {
-        return daID;
+    public Integer getDaId() {
+        return daId;
     }
 
-    public void setDaID(int daID) {
-        this.daID = daID;
+    public void setDaId(Integer daId) {
+        this.daId = daId;
     }
 
     public String getContactName() {
@@ -24,11 +24,11 @@ public class Address {
         this.contactName = contactName;
     }
 
-    public int getContactSex() {
+    public Integer getContactSex() {
         return contactSex;
     }
 
-    public void setContactSex(int contactSex) {
+    public void setContactSex(Integer contactSex) {
         this.contactSex = contactSex;
     }
 

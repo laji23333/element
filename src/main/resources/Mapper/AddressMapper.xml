@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.element.Dao.AddressMapper">
+<mapper namespace="com.element.Mapper.AddressMapper">
     <select id="getAllAddress"  resultType="com.element.Entity.po.Address">
         select * from deliveryaddress
     </select>
