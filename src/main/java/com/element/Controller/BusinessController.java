@@ -1,19 +1,73 @@
 package com.element.Controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.element.Entity.po.Business;
+import com.element.Entity.vo.BusinessVO;
 import com.element.Service.BusinessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 public class BusinessController {
     @Autowired
     private BusinessService businessService;
 
-    @GetMapping("/getBusiness/{id}")
-    public Business getBusiness(@PathVariable("id") Integer businessId){
-        return businessService.getBusiness(businessId);
+    //获取所有商家信息
+    @GetMapping("/getAllBusiness")
+    String getAllBusiness(){
+        List<BusinessVO> businessVOS=new ArrayList<>();
+        for (Business business:businessService.getAllBusiness()){
+            BusinessVO businessVO = new BusinessVO();
+
+            businessVO.setBusinessId(business.getBusinessId());
+            businessVO.setBusinessName(business.getBusinessName());
+            businessVO.setBusinessExplain(business.getBusinessExplain());
+            businessVO.setBusinessImg(business.getBusinessImg());
+            businessVO.setStarPrice(business.getStarPrice());
+            businessVO.setDeliveryPrice(business.getStarPrice());
+            businessVO.setRemarks(business.getRemarks());
+            businessVOS.add(businessVO);
+        }
+        if (businessVOS.isEmpty()){
+            JSONObject result = new JSONObject();
+            result.put("status","failure");
+            result.put("detail","还没有商家");
+            return  result.toJSONString();
+        }
+        JSONObject result = new JSONObject();
+        result.put("status","success");
+        result.put("detail",businessVOS);
+        return  result.toJSONString();
+    }
+
+    //根据商家所属类型获取商家列表信息
+    @GetMapping("/getBusinessByOrderTypeId/{id}")
+    public String getBusiness(@PathVariable("id") Integer orderTypeId){
+        List<BusinessVO> businessVOS=new ArrayList<>();
+        for (Business business:businessService.getBusinessByOrderTypeId(orderTypeId)){
+            BusinessVO businessVO = new BusinessVO();
+            businessVO.setBusinessId(business.getBusinessId());
+            businessVO.setBusinessName(business.getBusinessName());
+            businessVO.setBusinessExplain(business.getBusinessExplain());
+            businessVO.setBusinessImg(business.getBusinessImg());
+            businessVO.setStarPrice(business.getStarPrice());
+            businessVO.setDeliveryPrice(business.getStarPrice());
+            businessVOS.add(businessVO);
+        }
+        if (businessVOS.isEmpty()){
+            JSONObject result = new JSONObject();
+            result.put("status","failure");
+            result.put("detail","还没有商家");
+            return  result.toJSONString();
+        }
+        JSONObject result = new JSONObject();
+        result.put("status","success");
+        result.put("detail",businessVOS);
+        return  result.toJSONString();
     }
 }
