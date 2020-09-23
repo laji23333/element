@@ -5,4 +5,26 @@
     <select id="getAllAddress"  resultType="com.element.Entity.po.DeliveryAddress">
         select * from deliveryaddress
     </select>
+
+    <select id="getAddressBydaId"  resultType="com.element.Entity.po.DeliveryAddress">
+        select * from deliveryaddress where daId = #{daId} limit 1
+    </select>
+
+    <insert id="addAddress"  parameterType="com.element.Entity.po.DeliveryAddress">
+        insert into deliveryaddress(daId,contactName,contactSex,contactTel,address,userId) values (#{daId},#{contactName},#{contactSex},#{contactTel},#{address},#{userId})
+    </insert>
+
+    <update id="updataAddress"  parameterType="com.element.Entity.po.DeliveryAddress" >
+        UPDATE deliveryaddress SET
+        contactName=#{contactName},contactSex=#{contactSex},contactTel=#{contactTel},address=#{address},userId=#{userId}
+        WHERE
+        daId = #{daId}
+    </update>
+
+    <delete id="deleteAddress" parameterType="com.element.Entity.po.DeliveryAddress">
+        DELETE FROM
+        deliveryaddress
+        WHERE
+        daId = #{daId}
+    </delete>
 </mapper>

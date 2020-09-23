@@ -18,4 +18,24 @@ public class AddressServiceImp implements AddressService {
     public List<DeliveryAddress> getAllAddress() {
         return addressMapper.getAllAddress();
     }
+
+    @Override
+    public DeliveryAddress getAddressBydaId(Integer daId) {
+        return addressMapper.getAddressBydaId(daId);
+    }
+
+    @Override
+    public int addAddress(Integer daId, String contactName, Integer contactSex, String contactTel, String address, String userId){
+        return addressMapper.addAddress(daId,contactName,contactSex,contactTel,address,userId);
+    }
+
+    @Override
+    public int updataAddress(Integer daId, String contactName, Integer contactSex, String contactTel, String address, String userId){
+        return addressMapper.updataAddress(daId,contactName,contactSex,contactTel,address,userId);
+    }
+
+    @Override
+    public int deleteAddress(Integer daId) {
+        return addressMapper.deleteAddress(daId);
+    }
 }
