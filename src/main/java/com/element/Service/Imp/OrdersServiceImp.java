@@ -1,6 +1,6 @@
 package com.element.Service.Imp;
 
-import com.element.Dao.OrdersMapper;
+import com.element.Mapper.OrdersMapper;
 import com.element.Entity.po.Orders;
 import com.element.Service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class OrdersServiceImpl implements OrdersService {
+public class OrdersServiceImp implements OrdersService {
 
     @Autowired(required=false)
     private OrdersMapper ordersMapper;
