@@ -7,6 +7,6 @@ import java.util.List;
 
 @Mapper
 public interface BusinessMapper {
-    public Business getBusiness(Integer businessId);
+    public Business getBusiness(int businessId);
     public List<Business> getBusinessList();
 }

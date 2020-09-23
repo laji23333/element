@@ -8,8 +8,8 @@ import java.util.List;
 
 @Mapper
 public interface OrdersMapper {
-    public Orders getOrders(Integer orderId);
+    public Orders getOrders(int orderId);
     public int saveOrders(Orders orders);
-    public int pay(Integer orderId);
+    public int pay(int orderId);
     public List<Orders> getOrdersList();
 }
