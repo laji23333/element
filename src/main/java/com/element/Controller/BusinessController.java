@@ -7,9 +7,7 @@ import com.element.Entity.vo.BusinessVO;
 
 import com.element.Service.BusinessService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,13 +15,14 @@ import java.util.Map;
 
 
 @RestController
+@RequestMapping("/business")
 public class BusinessController {
     @Autowired
     private BusinessService businessService;
 
     //获取所有商家信息
-    @GetMapping("/getAllBusiness")
-    String getAllBusiness(){
+    @RequestMapping(value = "getAllBusiness", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String getAllBusiness(){
         List<BusinessVO> businessVOS=new ArrayList<>();
         for (Business business:businessService.getAllBusiness()){
             BusinessVO businessVO = new BusinessVO();
@@ -50,8 +49,10 @@ public class BusinessController {
     }
 
     //根据商家所属类型获取商家列表信息
-    @GetMapping("/getBusinessByOrderTypeId/{id}")
-    public String getBusiness(@PathVariable("id") Integer orderTypeId){
+    @RequestMapping(value = "getBusinessByOrderTypeId", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String getBusinessByOrderTypeId(@RequestBody Business businessBO){
+        int orderTypeId = businessBO.getOrderTypeId();
+        System.out.println(orderTypeId);
         List<BusinessVO> businessVOS=new ArrayList<>();
         for (Business business:businessService.getBusinessByOrderTypeId(orderTypeId)){
             BusinessVO businessVO = new BusinessVO();

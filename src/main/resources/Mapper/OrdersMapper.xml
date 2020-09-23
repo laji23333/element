@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.element.Mapper.OrdersMapper">
+    <insert id="saveOrders" useGeneratedKeys="true" keyProperty="orderId">
+        insert into orders (userId,businessId,orderDate,orderTotal,daId,orderState)
+		 values (#{userId},#{businessId},#{orderDate},#{orderTotal},#{daId},#{orderState})
+    </insert>
+
+    <insert id="saveOrderDetails" useGeneratedKeys="true" keyProperty="odId">
+        insert into orderdetailet (orderId,foodId,quantity)
+		 values (#{orderId},#{foodId},#{quantity})
+    </insert>
+
+    <select id="getOrders" parameterType="Integer" resultType="com.element.Entity.po.Orders">
+        select * from orders where orderId=#{orderId}
+    </select>
+
+    <select id="getAllOrders" parameterType="String" resultType="com.element.Entity.po.Orders">
+        select * from orders where userId=#{userId}
+    </select>
+
+    <update id="pay" parameterType="Integer">
+        update orders set orderState values = 1
+    </update>
+
+    <select id="getOrderDetailet" parameterType="Integer" resultType="com.element.Entity.po.OrderDetailet">
+        select * from orderdetailet where orderId=#{orderId}
+    </select>
+</mapper>

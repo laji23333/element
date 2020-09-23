@@ -25,6 +25,12 @@ public class OrdersServiceImp implements OrdersService {
     }
 
     @Override
+    public int saveOrderDetails(OrderDetailet orderDetails){
+        return ordersMapper.saveOrderDetails(orderDetails);
+
+    }
+
+    @Override
     public int pay(Integer orderId) {
         return ordersMapper.pay(orderId);
     }
@@ -35,7 +41,7 @@ public class OrdersServiceImp implements OrdersService {
     }
 
     @Override
-    public OrderDetailet getOrderDetailet(Integer orderId) {
+    public List<OrderDetailet> getOrderDetailet(Integer orderId){
         return ordersMapper.getOrderDetailet(orderId);
     }
 }

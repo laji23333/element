@@ -7,9 +7,10 @@ import com.element.Entity.po.Orders;
 import java.util.List;
 
 public interface OrdersService {
-    public Orders getOrders(Integer orderId);
-    public int saveOrders(Orders orders);
-    public int pay(Integer orderId);
-    public List<Orders> getAllOrders(String userId);
-    public OrderDetailet getOrderDetailet(Integer orderId);
+    Orders getOrders(Integer orderId);
+    int saveOrders(Orders orders);
+    int saveOrderDetails(OrderDetailet orderDetails);
+    int pay(Integer orderId);
+    List<Orders> getAllOrders(String userId);
+    List<OrderDetailet> getOrderDetailet(Integer orderId);
 }
