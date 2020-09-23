@@ -6,4 +6,8 @@
     <select id="getAllFood" parameterType="Integer" resultType="com.element.Entity.po.Food">
         select * from food where businessId = #{businessId}
     </select>
+
+    <select id="getFood" parameterType="String" resultType="com.element.Entity.po.Food">
+        select * form detailet where foodId=#{foodId}
+    </select>
 </mapper>
