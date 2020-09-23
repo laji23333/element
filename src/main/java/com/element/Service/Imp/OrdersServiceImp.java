@@ -1,5 +1,6 @@
 package com.element.Service.Imp;
 
+import com.element.Entity.po.OrderDetailet;
 import com.element.Mapper.OrdersMapper;
 import com.element.Entity.po.Orders;
 import com.element.Service.OrdersService;
@@ -29,7 +30,12 @@ public class OrdersServiceImp implements OrdersService {
     }
 
     @Override
-    public List<Orders> getAllOrders() {
-        return ordersMapper.getAllOrders();
+    public List<Orders> getAllOrders(String userId) {
+        return ordersMapper.getAllOrders(userId);
+    }
+
+    @Override
+    public OrderDetailet getOrderDetailet(Integer orderId) {
+        return ordersMapper.getOrderDetailet(orderId);
     }
 }

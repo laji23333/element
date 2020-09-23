@@ -11,11 +11,15 @@
         select * form orders where orderId=#{orderId}
     </select>
 
-    <select id="getAllOrders" resultType="com.element.Entity.po.Orders">
-        select * form orders
+    <select id="getAllOrders" parameterType="String" resultType="com.element.Entity.po.Orders">
+        select * form orders where userId=#{userId}
     </select>
 
     <update id="pay" parameterType="Integer">
         update orders set orderState values = 1
     </update>
+
+    <select id="getOrderDetailet" parameterType="Integer" resultType="com.element.Entity.po.OrderDetailet">
+        select * form detailet where orderId=#{orderId}
+    </select>
 </mapper>

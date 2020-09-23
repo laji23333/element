@@ -1,4 +1,10 @@
 package com.element.Service;
-public interface FoodService {
 
+import com.element.Entity.po.Food;
+
+import java.util.List;
+
+public interface FoodService {
+    public List<Food> getAllFood(Integer businessId);
+    public Food getFood(String foodId);
 }

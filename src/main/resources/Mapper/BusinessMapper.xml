@@ -9,4 +9,8 @@
     <select id="getAllBusiness" resultType="com.element.Entity.po.Business">
         select * from business
     </select>
+
+    <select id="getBusinessByOrderTypeId" parameterType="String" resultType="com.element.Entity.po.Business">
+        select * from business where orderTypeId=#{orderTypeId}
+    </select>
 </mapper>
