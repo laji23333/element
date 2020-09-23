@@ -2,7 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.element.Dao.UserMapper">
-    <select id="getAllUser" resultType="com.element.Entity.po.User">
-        select * from user
+    <select id="login" resultType="com.element.Entity.User">
+        select * from user where userName = #{userName} and password = #{password}
     </select>
+
+    <select id="findUserByUserName" resultType="com.element.Entity.User">
+        select * from user where userName = #{userName}
+    </select>
+
+    <insert id="save">
+        insert into user(userId,userName,password,userSex,,delTag) values (#{userId},#{userName},#{password},#{userSex},#{userSex},#{delTag})
+    </insert>
 </mapper>

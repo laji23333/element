@@ -1,4 +1,4 @@
-package com.element.Entity.po;
+package com.element.Entity;
 
 public class Food {
 	private Integer foodId;     //食品id
