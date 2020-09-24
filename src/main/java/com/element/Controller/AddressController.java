@@ -1,13 +1,11 @@
 package com.element.Controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.element.Entity.po.Business;
 import com.element.Entity.po.DeliveryAddress;
 import com.element.Service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -121,8 +119,9 @@ public class AddressController {
         return  result.toJSONString();
     }
 
-    @PostMapping("/deleteAddress")
-    public String deleteAddress(@RequestParam("daId") Integer daId){
+    @RequestMapping(value = "deleteAddress", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String deleteAddress(@RequestBody DeliveryAddress addressBO){
+        Integer daId = addressBO.getDaId();
         int flag = addressService.deleteAddress(daId);
         JSONObject result = new JSONObject();
         if (flag == 0){
