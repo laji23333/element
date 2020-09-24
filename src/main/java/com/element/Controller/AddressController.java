@@ -1,13 +1,11 @@
 package com.element.Controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.element.Entity.po.Business;
 import com.element.Entity.po.DeliveryAddress;
 import com.element.Service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -73,26 +71,26 @@ public class AddressController {
                              @RequestParam("contactSex") Integer contactSex,
                              @RequestParam("contactTel") String contactTel,
                              @RequestParam("address") String address,
-                             @RequestParam("daId") Integer daId,
+                             //@RequestParam("daId") Integer daId,
                              @RequestParam("userId") String userId){
 
         //判断id是否重复
-        DeliveryAddress repeat = addressService.getAddressBydaId(daId);
+        //DeliveryAddress repeat = addressService.getAddressBydaId(daId);
         JSONObject result = new JSONObject();
-        if(repeat != null){
-            result.put("status","failure");
-            result.put("detail","daId重复");
-            return  result.toJSONString();
-        }
+//        if(repeat != null){
+//            result.put("status","failure");
+//            result.put("detail","daId重复");
+//            return  result.toJSONString();
+//        }
 
-        int insertres = addressService.addAddress(daId,contactName,contactSex,contactTel,address,userId);
+        int insertres = addressService.addAddress(contactName,contactSex,contactTel,address,userId);
         if (insertres == 0){
             result.put("status","failure");
             result.put("detail","保存失败");
         }
         else {
             result.put("status","success");
-            DeliveryAddress insertedadd = addressService.getAddressBydaId(daId);
+            List<DeliveryAddress> insertedadd = addressService.getAddressByuserId(userId);
             //修改成功后 返回实体类
             result.put("detail",insertedadd);
         }
@@ -121,8 +119,9 @@ public class AddressController {
         return  result.toJSONString();
     }
 
-    @PostMapping("/deleteAddress")
-    public String deleteAddress(@RequestParam("daId") Integer daId){
+    @RequestMapping(value = "deleteAddress", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String deleteAddress(@RequestBody DeliveryAddress addressBO){
+        Integer daId = addressBO.getDaId();
         int flag = addressService.deleteAddress(daId);
         JSONObject result = new JSONObject();
         if (flag == 0){

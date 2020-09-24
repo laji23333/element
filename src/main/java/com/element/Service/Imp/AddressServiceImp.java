@@ -30,8 +30,8 @@ public class AddressServiceImp implements AddressService {
     }
 
     @Override
-    public int addAddress(Integer daId, String contactName, Integer contactSex, String contactTel, String address, String userId){
-        return addressMapper.addAddress(daId,contactName,contactSex,contactTel,address,userId);
+    public int addAddress(String contactName, Integer contactSex, String contactTel, String address, String userId){
+        return addressMapper.addAddress(contactName,contactSex,contactTel,address,userId);
     }
 
     @Override
