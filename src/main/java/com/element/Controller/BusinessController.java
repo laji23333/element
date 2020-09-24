@@ -16,6 +16,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/business")
+@CrossOrigin
 public class BusinessController {
     @Autowired
     private BusinessService businessService;

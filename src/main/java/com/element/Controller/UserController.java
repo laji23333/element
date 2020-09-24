@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 @RestController
+@CrossOrigin
 public class UserController {
     @Autowired
     private UserService userService;

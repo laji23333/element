@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.element.Entity.po.DeliveryAddress;
 import com.element.Service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class AddressController {
 
     @Autowired
