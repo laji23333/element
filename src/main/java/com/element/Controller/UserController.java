@@ -69,7 +69,7 @@ public class UserController {
             register.setPassword(password);
             register.setUserSex(userSex);
             register.setUserImg(userImg);
-            register.setDelTag(delTag);
+            register.setDelTag(1);
             userService.save(register);
             result.put("status","success");
             result.put("detail",register);
