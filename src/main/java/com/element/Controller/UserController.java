@@ -49,8 +49,7 @@ public class UserController {
     //注册功能
     @PostMapping("/register")
     public String register(@RequestParam("userId") String userId, @RequestParam("userName")
-            String userName, @RequestParam("password") String password,@RequestParam("userSex") int userSex, @RequestParam("userImg")
-            String userImg, @RequestParam("delTag") int delTag){
+            String userName, @RequestParam("password") String password,@RequestParam("userSex") int userSex){
         JSONObject result = new JSONObject();
         //用户或密码为空的条件判断
         if(userId.isEmpty()||userName.isEmpty()||password.isEmpty()){
@@ -68,7 +67,6 @@ public class UserController {
             register.setUserName(userName);
             register.setPassword(password);
             register.setUserSex(userSex);
-            register.setUserImg(userImg);
             register.setDelTag(1);
             userService.save(register);
             result.put("status","success");
