@@ -31,10 +31,10 @@ public class BusinessServiceImp implements BusinessService {
     }
 
     @Override
-    public Map<Integer, Object> getBusiness(Integer businessId) {
-        Map<Integer,Object> businessMap = new HashMap<Integer,Object>();
-        businessMap.put(1,businessMapper.getBusiness(businessId));
-        businessMap.put(2,foodMapper.getAllFood(businessId));
+    public Map<String, Object> getBusiness(Integer businessId) {
+        Map<String,Object> businessMap = new HashMap<String,Object>();
+        businessMap.put("1",businessMapper.getBusiness(businessId));
+        businessMap.put("2",foodMapper.getAllFood(businessId));
         return businessMap;
     }
 

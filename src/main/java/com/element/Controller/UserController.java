@@ -52,7 +52,7 @@ public class UserController {
     public String register(@RequestBody User userPO){
         JSONObject result = new JSONObject();
         //用户或密码为空的条件判断
-        if(userPO.getUserId().isEmpty()||userPO.getPassword().isEmpty()||userPO.getPassword().isEmpty()){
+        if(userPO.getUserId().isEmpty()||userPO.getUserName().isEmpty()||userPO.getPassword().isEmpty()){
             JSONObject result1 = new JSONObject();
             result1.put("status","failure");
             result1.put("detail","手机号或用户名或密码不能为空");
