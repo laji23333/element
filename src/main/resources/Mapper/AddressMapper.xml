@@ -15,7 +15,7 @@
     </select>
 
     <insert id="addAddress"  parameterType="com.element.Entity.po.DeliveryAddress">
-        insert into deliveryaddress(daId,contactName,contactSex,contactTel,address,userId) values (#{daId},#{contactName},#{contactSex},#{contactTel},#{address},#{userId})
+        insert into deliveryaddress(contactName,contactSex,contactTel,address,userId) values (#{contactName},#{contactSex},#{contactTel},#{address},#{userId})
     </insert>
 
 

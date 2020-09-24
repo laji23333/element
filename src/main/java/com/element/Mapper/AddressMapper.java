@@ -15,7 +15,7 @@ public interface AddressMapper {
 
     List<DeliveryAddress> getAddressByuserId(String userId);
 
-    int addAddress(Integer daId, String contactName, Integer contactSex, String contactTel, String address, String userId);
+    int addAddress(String contactName, Integer contactSex, String contactTel, String address, String userId);
 
     int updataAddress(Integer daId, String contactName, Integer contactSex, String contactTel, String address, String userId);
 

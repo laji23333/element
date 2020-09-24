@@ -73,26 +73,26 @@ public class AddressController {
                              @RequestParam("contactSex") Integer contactSex,
                              @RequestParam("contactTel") String contactTel,
                              @RequestParam("address") String address,
-                             @RequestParam("daId") Integer daId,
+                             //@RequestParam("daId") Integer daId,
                              @RequestParam("userId") String userId){
 
         //判断id是否重复
-        DeliveryAddress repeat = addressService.getAddressBydaId(daId);
+        //DeliveryAddress repeat = addressService.getAddressBydaId(daId);
         JSONObject result = new JSONObject();
-        if(repeat != null){
-            result.put("status","failure");
-            result.put("detail","daId重复");
-            return  result.toJSONString();
-        }
+//        if(repeat != null){
+//            result.put("status","failure");
+//            result.put("detail","daId重复");
+//            return  result.toJSONString();
+//        }
 
-        int insertres = addressService.addAddress(daId,contactName,contactSex,contactTel,address,userId);
+        int insertres = addressService.addAddress(contactName,contactSex,contactTel,address,userId);
         if (insertres == 0){
             result.put("status","failure");
             result.put("detail","保存失败");
         }
         else {
             result.put("status","success");
-            DeliveryAddress insertedadd = addressService.getAddressBydaId(daId);
+            List<DeliveryAddress> insertedadd = addressService.getAddressByuserId(userId);
             //修改成功后 返回实体类
             result.put("detail",insertedadd);
         }
