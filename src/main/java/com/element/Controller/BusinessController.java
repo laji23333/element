@@ -82,8 +82,8 @@ public class BusinessController {
      * @param businessId
      * @return businessService.getBusiness(businessId)
      */
-    @GetMapping("/getBusiness/{id}")
-    public String getBusinessDetail(@PathVariable("id") Integer businessId){
+    @GetMapping("/getBusiness")
+    public String getBusinessDetail(@RequestParam("businessId") Integer businessId){
         JSONObject result = new JSONObject();
         result.put("status","success");
         result.put("detail",businessService.getBusiness(businessId));
