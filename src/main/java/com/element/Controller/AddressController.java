@@ -33,12 +33,12 @@ public class AddressController {
     }
 
 
-    @PostMapping("/getAddressBydaId")
-    public String getAddressBydaId(@RequestParam("daId") Integer daId){
+    @RequestMapping(value = "getAddressBydaId", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String getAddressBydaId(@RequestBody DeliveryAddress addressBO){
 
-        DeliveryAddress address = addressService.getAddressBydaId(daId);
+        DeliveryAddress address = addressService.getAddressBydaId(addressBO.getDaId());
         JSONObject result = new JSONObject();
-        if (address == null){
+        if (address==null){
             result.put("status","failure");
             result.put("detail","暂无地址信息");
         }
@@ -49,12 +49,12 @@ public class AddressController {
         return  result.toJSONString();
     }
 
-    @PostMapping("/getAddressByuserId")
-    public String getAddressByuserId(@RequestParam("userId") String userId){
+    @RequestMapping(value = "getAddressByuserId", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String getAddressByuserId(@RequestBody DeliveryAddress addressBO){
 
-        List<DeliveryAddress> address = addressService.getAddressByuserId(userId);
+        List<DeliveryAddress> address = addressService.getAddressByuserId(addressBO.getUserId());
         JSONObject result = new JSONObject();
-        if (address == null){
+        if (address.isEmpty()){
             result.put("status","failure");
             result.put("detail","暂无地址信息");
         }
@@ -66,13 +66,8 @@ public class AddressController {
     }
 
 
-    @PostMapping("/addAddress")
-    public String addAddress(@RequestParam("contactName") String contactName,
-                             @RequestParam("contactSex") Integer contactSex,
-                             @RequestParam("contactTel") String contactTel,
-                             @RequestParam("address") String address,
-                             //@RequestParam("daId") Integer daId,
-                             @RequestParam("userId") String userId){
+    @RequestMapping(value = "addAddress", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String addAddress(@RequestBody DeliveryAddress addressBO){
 
         //判断id是否重复
         //DeliveryAddress repeat = addressService.getAddressBydaId(daId);
@@ -83,28 +78,23 @@ public class AddressController {
 //            return  result.toJSONString();
 //        }
 
-        int insertres = addressService.addAddress(contactName,contactSex,contactTel,address,userId);
+        int insertres = addressService.addAddress(addressBO.getContactName(),addressBO.getContactSex(),addressBO.getContactTel(),addressBO.getAddress(),addressBO.getUserId());
         if (insertres == 0){
             result.put("status","failure");
             result.put("detail","保存失败");
         }
         else {
             result.put("status","success");
-            List<DeliveryAddress> insertedadd = addressService.getAddressByuserId(userId);
+            List<DeliveryAddress> insertedadd = addressService.getAddressByuserId(addressBO.getUserId());
             //修改成功后 返回实体类
             result.put("detail",insertedadd);
         }
         return  result.toJSONString();
     }
 
-    @PostMapping("/updataAddress")
-    public String updataAddress(@RequestParam("contactName") String contactName,
-                                @RequestParam("contactSex") Integer contactSex,
-                                @RequestParam("contactTel") String contactTel,
-                                @RequestParam("address") String address,
-                                @RequestParam("daId") Integer daId,
-                                @RequestParam("userId") String userId){
-        int flag = addressService.updataAddress(daId,contactName,contactSex,contactTel,address,userId);
+    @RequestMapping(value = "updataAddress", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String updataAddress(@RequestBody DeliveryAddress addressBO){
+        int flag = addressService.updataAddress(addressBO.getDaId(),addressBO.getContactName(),addressBO.getContactSex(),addressBO.getContactTel(),addressBO.getAddress(),addressBO.getUserId());
         JSONObject result = new JSONObject();
         if (flag == 0){
             result.put("status","failure");
@@ -112,7 +102,7 @@ public class AddressController {
         }
         else {
             result.put("status","success");
-            DeliveryAddress updataeddadd = addressService.getAddressBydaId(daId);
+            DeliveryAddress updataeddadd = addressService.getAddressBydaId(addressBO.getDaId());
             //修改成功后 返回实体类
             result.put("detail",updataeddadd);
         }

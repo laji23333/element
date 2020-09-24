@@ -48,33 +48,32 @@ public class UserController {
 
     }
     //注册功能
-    @PostMapping("/register")
-    public String register(@RequestParam("userId") String userId, @RequestParam("userName")
-            String userName, @RequestParam("password") String password,@RequestParam("userSex") int userSex){
+    @RequestMapping(value = "register", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String register(@RequestBody User userPO){
         JSONObject result = new JSONObject();
         //用户或密码为空的条件判断
-        if(userId.isEmpty()||userName.isEmpty()||password.isEmpty()){
+        if(userPO.getUserId().isEmpty()||userPO.getPassword().isEmpty()||userPO.getPassword().isEmpty()){
             JSONObject result1 = new JSONObject();
             result1.put("status","failure");
-            result1.put("detail","用户名或密码不能为空");
+            result1.put("detail","手机号或用户名或密码不能为空");
             return  result1.toJSONString();
         }
         //判断是否取到用户，如果没有就保存在数据库中
-        User user= userService.findUserByUserName(userName);
-        User user1 = userService.findUserByUserId(userId);
+        User user= userService.findUserByUserName(userPO.getUserName());
+        User user1 = userService.findUserByUserId(userPO.getUserId());
         if(user == null && user1 == null){
             User register=new User();
-            register.setUserId(userId);
-            register.setUserName(userName);
-            register.setPassword(password);
-            register.setUserSex(userSex);
+            register.setUserId(userPO.getUserId());
+            register.setUserName(userPO.getUserName());
+            register.setPassword(userPO.getPassword());
+            register.setUserSex(userPO.getUserSex());
             register.setDelTag(1);
             userService.save(register);
             result.put("status","success");
             result.put("detail",register);
         }else {
             result.put("status","failure");
-            result.put("detail","还没有商家");
+            result.put("detail","注册失败！");
         }
         return  result.toJSONString();
     }

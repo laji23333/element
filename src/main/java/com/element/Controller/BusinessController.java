@@ -79,14 +79,13 @@ public class BusinessController {
 
     /**
      * 获取商家的详情信息
-     * @param businessId
      * @return businessService.getBusiness(businessId)
      */
-    @GetMapping("/getBusiness")
-    public String getBusinessDetail(@RequestParam("businessId") Integer businessId){
+    @RequestMapping(value = "getBusinessDetail", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String getBusinessDetail(@RequestBody BusinessVO businessVO){
         JSONObject result = new JSONObject();
         result.put("status","success");
-        result.put("detail",businessService.getBusiness(businessId));
+        result.put("detail",businessService.getBusiness(businessVO.getBusinessId()));
         return result.toJSONString();
     }
 }
