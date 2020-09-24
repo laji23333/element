@@ -9,6 +9,8 @@ public interface AddressService {
 
     DeliveryAddress getAddressBydaId(Integer daId);
 
+    List<DeliveryAddress> getAddressByuserId(String userId);
+
     int addAddress(Integer daId, String contactName, Integer contactSex, String contactTel, String address, String userId);
 
     int updataAddress(Integer daId, String contactName, Integer contactSex, String contactTel, String address, String userId);

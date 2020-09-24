@@ -44,8 +44,22 @@ public class AddressController {
         }
         else {
             result.put("status","success");
+            result.put("detail",address);
+        }
+        return  result.toJSONString();
+    }
 
+    @PostMapping("/getAddressByuserId")
+    public String getAddressByuserId(@RequestParam("userId") String userId){
 
+        List<DeliveryAddress> address = addressService.getAddressByuserId(userId);
+        JSONObject result = new JSONObject();
+        if (address == null){
+            result.put("status","failure");
+            result.put("detail","暂无地址信息");
+        }
+        else {
+            result.put("status","success");
             result.put("detail",address);
         }
         return  result.toJSONString();
